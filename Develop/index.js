@@ -14,7 +14,98 @@ const questions = ["What is the title of your project?",
 "What license do you need?",];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, response) {
+    const title = response.title
+    const description = response.description
+    const install = response.install
+    const usage = response.usage
+    const contribution = response.contribution
+    const testing = response.testing
+    const username = response.username
+    const email = response.email
+    const license = response.license
+    const badges = {
+    APM: "https://shields.io/badge/license-MIT-green", 
+    AUR: "https://shields.io/badge/license-Apache-blue", 
+    Bower: "https://shields.io/badge/license-MIT-green", 
+    CocoaPods: "https://shields.io/badge/license-MIT-%23373737", 
+    Conda: "https://shields.io/badge/license-MIT-green", 
+    CPAN: "https://shields.io/badge/license-lgpl__2__1-blue", 
+    CRAN: "https://shields.io/badge/license-MIT%20%2B%20file%20LICENSE-blue", 
+    CratesIO: "https://shields.io/badge/license-MIT%2FApache--2.0-blue", 
+    CTAN: "https://shields.io/badge/license-ppl1.3c%2C%20ofl-lightgrey", 
+    DUB: "https://shields.io/badge/license-MIT-green", 
+    Eclipse: "https://shields.io/badge/license-GPL-blue", 
+    GitHub: "https://shields.io/badge/license-MIT-green", 
+    Hex: "https://shields.io/badge/license-Apache%202-blue", 
+    NPM: "https://shields.io/badge/license-MIT-green", 
+    Ore: "https://shields.io/badge/license-MIT-green", 
+    Packagist: "https://shields.io/badge/license-MIT-green", 
+    PyPI: "https://shields.io/badge/license-BSD-green", 
+    REUSE: "https://shields.io/badge/reuse-compliant-green", 
+    Weblate: "https://shields.io/badge/license-MIT-informational"
+    }
+    const badgeUrl = badges[license]
+    console.log(license)
+    console.log(badges[license])
+    
+    const html = 
+`## Description
+
+![badgeImg](${badgeUrl})
+
+${description} 
+
+
+## Table of Contents 
+
+[Installation](#Installation)
+    
+[Usage](#usage)
+    
+[License](#License)
+    
+[Constributing](#Constributing)
+    
+[Tests](#Tests)
+    
+[Questions](#Questions)
+    
+    
+## Installation
+    
+${install}
+    
+    
+## Usage
+    
+${usage}
+    
+    
+## License 
+    
+${license}
+    
+    
+## Contribution 
+    
+${contribution}
+    
+    
+## Tests
+    
+${testing}
+    
+    
+## Questions
+    
+For questions, email me at: ${email}
+    
+Or, checkout my github! [hcweigand10](github.com/${username})`
+    
+    fs.writeFile(`${title}-README.md`, html, (err) =>
+    err ? console.error(err) : console.log('Commit logged!'))
+}
 
 // TODO: Create a function to initialize app
 function init() {
@@ -61,18 +152,14 @@ function init() {
             name: "email",
         },
         {
-            type: "input",
+            type: "list",
             message: questions[8],
-            choices: [],
+            choices: ["APM", "AUR", "Bower", "CocoaPods", "Conda", "CPAN", "CRAN", "CratesIO", "CTAN", "DUB", "Eclipse", "GitHub", "Hex", "NPM", "Ore", "Packagist", "PyPI", "REUSE", "Weblate"],
             name: "license",
         },
       ])
       .then((response) => {
-        const name = response.name
-        const city = response.city
-        const food = response.food
-        const username = response.username
-        const travel = response.travel
+        writeToFile("sample.md", response)
       })
 }
 
