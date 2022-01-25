@@ -49,4 +49,4 @@ ${description}
 
 For questions, email me at: ${email}
 
-Or, checkout my github! [hcweigand10](github.com/${username})
+Or, checkout my [github!](github.com/${username})

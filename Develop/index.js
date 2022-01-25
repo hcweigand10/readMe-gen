@@ -101,7 +101,7 @@ ${testing}
     
 For questions, email me at: ${email}
     
-Or, checkout my github! [hcweigand10](github.com/${username})`
+Or, checkout my [github!](github.com/${username})`
     
     fs.writeFile(`${title}-README.md`, html, (err) =>
     err ? console.error(err) : console.log('Commit logged!'))
