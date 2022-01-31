@@ -29,7 +29,8 @@ This application can be used generate README's for coding projects in markdown. 
     
 ## Usage
     
-Follow the prompts in the integrated terminal to use this application and generate a custom README
+See walkthrough below:
+![walkthrough](Assets/readme-gen-walkthrough2.gif)
     
     
 ## License 
