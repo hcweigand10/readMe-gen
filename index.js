@@ -61,7 +61,7 @@ ${description}
 
 [Installation](#Installation)
     
-[Usage](#usage)
+[Usage](#Usage)
     
 [License](#License)
     
